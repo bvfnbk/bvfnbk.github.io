@@ -1,0 +1,95 @@
+<!doctype html><html lang=en-us><head><title>Personal GitHub Pages using Hugo // Notes of bvfnbk</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.83.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="bvfnbk"><meta name=description content><link rel=stylesheet href=https://bvfnbk.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="Personal GitHub Pages using Hugo"><meta name=twitter:description content="I used to play around with my personal GitHub page every once in a while. I used to set up the repository and initialized it using the recommended Jekyll way. Jekyll is a site generator implemented in Ruby - which is already there on my MacBook (severely outdated) or a brew install away (which might be an over-simplification).
+It is equally easy to install Jekyll for local development. This alone would be great if not for the software upgrades coming in from time to time."><meta property="og:title" content="Personal GitHub Pages using Hugo"><meta property="og:description" content="I used to play around with my personal GitHub page every once in a while. I used to set up the repository and initialized it using the recommended Jekyll way. Jekyll is a site generator implemented in Ruby - which is already there on my MacBook (severely outdated) or a brew install away (which might be an over-simplification).
+It is equally easy to install Jekyll for local development. This alone would be great if not for the software upgrades coming in from time to time."><meta property="og:type" content="article"><meta property="og:url" content="https://bvfnbk.github.io/posts/hugo/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-07-22T10:33:40+02:00"><meta property="article:modified_time" content="2022-07-22T10:33:40+02:00"></head><body><header class=app-header><a href=https://bvfnbk.github.io/><img class=app-header-avatar src=/avatar.png alt=bvfnbk></a><h1>Notes of bvfnbk</h1><nav class=app-header-menu><a class=app-header-menu-item href=/>Home</a>
+/
+<a class=app-header-menu-item href=/tags/>Tags</a>
+/
+<a class=app-header-menu-item href=/about/>About</a></nav><p>Software development and other stuff.</p><div class=app-header-social><a href=https://github.com/bvfnbk target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>https://github.com/bvfnbk</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>Personal GitHub Pages using Hugo</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jul 22, 2022</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://bvfnbk.github.io/tags/hugo/>Hugo</a>
+<a class=tag href=https://bvfnbk.github.io/tags/github/>Github</a>
+<a class=tag href=https://bvfnbk.github.io/tags/macos/>macOS</a></div></div></header><div class=post-content><p>I used to play around with my personal GitHub page every once in a while. I used to set up the repository and
+initialized it using the recommended <em>Jekyll</em> way. <em>Jekyll</em> is a site generator implemented in Ruby - which is already
+there on my MacBook (severely outdated) or a <code>brew install</code> away (which might be an over-simplification).</p><p>It is equally easy to install <em>Jekyll</em> for local development. This alone would be great if not for the software upgrades
+coming in from time to time. Most of the time everything was fine but occasionally, an update of a single package came
+in which sort of broke <em>Jekyll</em>. That left me clueless (I am no Ruby developer) and forced me to execute a
+&ldquo;remove all, install all&rdquo; procedure to fix things again.</p><p>That calmed down my desire to have a personal GitHub page a bit. I did some research and read about other site
+generators. I looked into some of them whether they could fit into the original GitHub page workflow or not - I could
+not find one.</p><p>Some side quests made me try out GitHub actions, one blog post lead to another. I stumbled over <em>Hugo</em>
+(<a href=https://gohugo.io>https://gohugo.io</a>) before and I liked it even then: The idea of one executable without any external dependencies
+really <em>is</em> simpatico. And now I have found a solution to use it for my GitHub page.</p><p>So here we go. This post summarizes the setup for a personal GitHub page. It uses <em>GitHub Actions</em> to deploy changes
+to the actual site. I try to describe the procedure as generic as possible, some instructions are abstract, others lack
+important details which might require additional research - where I have created manual pages/examples I do link to
+these pages though.</p><p>The guide is macOS-centric but the quintessence is applicable to Windows/Linux as well.</p><h2 id=requirements>Requirements</h2><p>Why would you care about setting up a personal GitHub page without a <em>GitHub account</em>, right?</p><p>Go create one if you have none. This guide tries to be as generic as possible - therefore I use <code>$GH_USER</code> as your
+username. Replace it with your &ldquo;real&rdquo; name.</p><p>Obviously, you will need <em>Hugo</em>. Install it on macOS with <em>Homebrew</em>, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew install hugo
+$ hugo version
+hugo v0.101.0+extended darwin/amd64 BuildDate<span style=color:#f92672>=</span>unknown
+</code></pre></div><p>Finally, working with GitHub without <code>git</code> is almost as hard as accessing GitHub without a user account. Install <code>git</code>
+and an SSH client (which is optional and may be replaced with HTTPS).</p><h2 id=setting-up-a-new-site>Setting up a New Site</h2><p>The CLI <code>hugo</code> includes a command to create the basic directory structure. Create a new site in the current directory
+with</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ hugo new site source.$GH_USER.github.io
+</code></pre></div><p>The site will only contain the <em>sources</em> of your page. These files will be transformed and committed to the actual
+repository with the help of a <em>GitHub Action</em>. You may choose whichever name you want here.</p><p>This creates a directory of the same name in the current working directory. All subsequent commands are supposed to be
+run <em>in</em> the site directory and paths to files are given relative to the site directory.</p><p>Edit the configuration file <code>config.toml</code> to complete the initial setup. set <code>baseURL</code> to the URL pointing to your final
+GitHub page. The initial contents may look like:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=color:#a6e22e>baseURL</span> = <span style=color:#e6db74>&#39;https://$GH_USER.github.io/&#39;</span>
+<span style=color:#a6e22e>languageCode</span> = <span style=color:#e6db74>&#39;en-us&#39;</span>
+<span style=color:#a6e22e>title</span> = <span style=color:#e6db74>&#39;Notes of $GH_USER&#39;</span>
+</code></pre></div><p>Initialise a new <a href=/posts/man/git/>git</a> repository in the site directory. This is required when adding the <em>theme</em> to
+the site.</p><p>You most certainly want to focus on writing your posts and not on writing and fixing all of your templates to bring your
+ideas onto your GitHub page. Then, a <em>theme</em> is what you want. There are quite a few themes to choose from listed at</p><ul><li><a href=https://themes.gohugo.io>https://themes.gohugo.io</a> or</li><li><a href=https://hugothemesfree.com>https://hugothemesfree.com</a></li></ul><p>For your information: this site uses the theme <a href=https://hugothemesfree.com/a-minimalistic-blog-theme-for-hugo/>m10c</a>.
+It <em>should</em> be added to the repository as a <a href=/posts/man/git/>submodule</a> (into the <code>themes/</code> directory) of your site,
+e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git submodule add https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+</code></pre></div><p>That way it becomes easier for you to update the theme if required. It must be &ldquo;enabled&rdquo; and configured in your
+<code>config.toml</code>, i.e.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=color:#a6e22e>theme</span> = <span style=color:#e6db74>&#34;m10c&#34;</span>
+
+[<span style=color:#a6e22e>params</span>]
+  <span style=color:#a6e22e>author</span> = <span style=color:#e6db74>&#34;$GH_USER&#34;</span>
+  <span style=color:#a6e22e>description</span> = <span style=color:#e6db74>&#34;Describe you page&#34;</span>
+</code></pre></div><p><em>m10c</em> requires the <code>author</code> and/or <code>description</code> field in its templates. <code>hugo</code> may not be able to build/serve the site
+without them.</p><p>What good is a site for if it does not contain a post? Let&rsquo;s change this.</p><p>The <code>hugo</code> CLI offers a command for that as well. It does not write your post but you can create the boilerplate post
+with</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ hugo new posts/first-post.md
+</code></pre></div><p>This creates the file <code>posts/first-post.md</code> using <code>archetypes/default.md</code> as a template. The result is something like</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>---
+<span style=color:#f92672>title</span>: <span style=color:#e6db74>&#34;First Post&#34;</span>
+<span style=color:#f92672>date</span>: <span style=color:#e6db74>2022-07-08T13:11:25</span><span style=color:#ae81ff>+02</span>:<span style=color:#ae81ff>00</span>
+<span style=color:#f92672>draft</span>: <span style=color:#66d9ef>true</span>
+---
+</code></pre></div><p>The file contains the <em>front-matter</em>. There you have the <code>title</code> (which is - tata - the page title and also
+rendered in the post list), the <code>date</code> which defines the creation date/time and a boolean flag <code>draft</code>.</p><p><em>Draft</em> posts are not rendered in the finally published site. This way it is possible to work on new posts and commit
+your changes without affecting the currently published site.</p><p>When you look at the archetype, you will see how Hugo calculates the <code>date</code> and <code>title</code> using macros.</p><p>Now add some markdown and use <a href=/posts/man/hugo/>hugo</a> to start a local development service with</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ hugo server -D
+</code></pre></div><h2 id=setup-github>Setup GitHub</h2><p>Go to <a href=https://github.com>https://github.com</a> and create two repositories for your user. The first one for your site sources the second one
+for your actual GitHub page. The page repository must be named <code>$GH_USER.github.io</code> but the site repository may be
+called just like you prefer.</p><p>For this guide, I expect <code>source.$GH_USER.github.io</code>. Configure the <a href=/posts/man/git/>remotes</a> for your site directory
+and add the <a href=/posts/man/git/>git</a> URL as <code>origin</code>.</p><p>Push your sources (do not forget to set upstream branch) and continue to configure the GitHub actions.</p><p>The idea is, to build and publish a new site whenever the source repository is modified. We can use a GitHub action for
+that purpose. This action must be able to <em>deploy</em> to the <code>$GH_USER.github.io</code> repository which requires an SSH keypair
+for authentication purposes.</p><p>Use <a href=/posts/man/ssh-keygen/>ssh-keygen</a> to generate an SSH keypair (leave the passphrase empty for the private key).</p><ol><li>Register the <em>public</em> key as a <em>Deployment Key</em> of the <code>$GH_USER.github.io</code> repository (with write access).</li><li>Register the <em>private</em> key as <em>Repository Secret</em> of the <code>source.$GH_USER.github.io</code> repository (for the action);
+name the secret <code>PRIVATE_KEY</code> (or whatever; this is used in the action).</li></ol><p>Create the action <code>.github/workflows/github-pages.yml</code> with the following contents:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>name</span>: <span style=color:#ae81ff>Push to Github Pages</span>
+<span style=color:#f92672>on</span>:
+  <span style=color:#f92672>push</span>:
+    <span style=color:#f92672>branches</span>:
+      - <span style=color:#ae81ff>main</span>
+  <span style=color:#f92672>pull_request</span>:
+
+<span style=color:#f92672>jobs</span>:
+  <span style=color:#f92672>deploy</span>:
+    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+    <span style=color:#f92672>steps</span>:
+      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>submodules</span>: <span style=color:#66d9ef>true</span>  <span style=color:#75715e># Fetch Hugo themes (true OR recursive)</span>
+          <span style=color:#f92672>fetch-depth</span>: <span style=color:#ae81ff>0</span>    <span style=color:#75715e># Fetch all history for .GitInfo and .Lastmod</span>
+
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Hugo</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v2</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;0.83.0&#39;</span>
+
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build</span>
+        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>hugo --minify</span>
+
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Deploy</span>
+        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-gh-pages@v3</span>
+        <span style=color:#f92672>with</span>:
+          <span style=color:#f92672>deploy_key</span>: <span style=color:#ae81ff>${{ secrets.PRIVATE_KEY }}</span>
+          <span style=color:#f92672>external_repository</span>: <span style=color:#ae81ff>$GH_USER/$GH_USER.github.io</span>
+          <span style=color:#f92672>publish_dir</span>: <span style=color:#ae81ff>./public</span>
+</code></pre></div><h2 id=summary>Summary</h2><p>This guide described, how to setup a <a href=https://gohugo.io>Hugo</a>-powered personal GitHub page. Any change committed to
+the <code>main</code> branch of the source repository is automatically built and published.</p><p>This guide deliberately leaves details out. I assume that you have worked with <code>git</code>, <code>ssh</code>, GitHub and eventually
+<em>Homebrew</em> before. Thus, you already know the required instructions - or at least where to look for supplemental
+manuals. You do not blindly execute instructions - without thinking about their effects and their correctness.</p></div><div class=post-footer></div></article></main></body></html>
