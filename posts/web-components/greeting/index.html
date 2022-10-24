@@ -1,163 +1,95 @@
-<!doctype html><html lang=en-us><head><title>A 'Greeter' Web Component // Notes of bvfnbk</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.83.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="bvfnbk"><meta name=description content><link rel=stylesheet href=https://bvfnbk.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="A 'Greeter' Web Component"><meta name=twitter:description content="Vanilla web components are custom components written in plain JavaScript without any of the usual component frameworks like React, Vue or Angular and alike involved.
-We will create a &ldquo;greeter&rdquo; element which is supposed to render a greeting message to the page. First, the message will be constant, but later it is supposed to be configurable using an attribute.
-Constant &ldquo;Hello World&rdquo; For the start, we define an element <hello-message />, which, when inserted into the page source, renders the most infamous"><meta property="og:title" content="A 'Greeter' Web Component"><meta property="og:description" content="Vanilla web components are custom components written in plain JavaScript without any of the usual component frameworks like React, Vue or Angular and alike involved.
-We will create a &ldquo;greeter&rdquo; element which is supposed to render a greeting message to the page. First, the message will be constant, but later it is supposed to be configurable using an attribute.
-Constant &ldquo;Hello World&rdquo; For the start, we define an element <hello-message />, which, when inserted into the page source, renders the most infamous"><meta property="og:type" content="article"><meta property="og:url" content="https://bvfnbk.github.io/posts/web-components/greeting/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-08-22T16:13:21+02:00"><meta property="article:modified_time" content="2022-08-22T16:13:21+02:00"></head><body><header class=app-header><a href=https://bvfnbk.github.io/><img class=app-header-avatar src=/avatar.png alt=bvfnbk></a><h1>Notes of bvfnbk</h1><nav class=app-header-menu><a class=app-header-menu-item href=/>Home</a>
+<!doctype html><html lang=en-us><head><title>A 'Greeter' Web Component // Notes of bvfnbk</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.83.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="bvfnbk"><meta name=description content><link rel=stylesheet href=https://bvfnbk.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="A 'Greeter' Web Component"><meta name=twitter:description content="Vanilla web components are custom components written in plain JavaScript - not using any of the usual component frameworks like React, Vue or Angular and alike involved.
+The following source code snippet defines a <hello-message /> component, written in plain JavaScript. It supports a single attribute named name:
+Create a file src/public/js/HelloWorld.js with the following contents:
+/* * Define template: * * - create `template` element * - set contents (`innerHTML`) - including `<style>` block."><meta property="og:title" content="A 'Greeter' Web Component"><meta property="og:description" content="Vanilla web components are custom components written in plain JavaScript - not using any of the usual component frameworks like React, Vue or Angular and alike involved.
+The following source code snippet defines a <hello-message /> component, written in plain JavaScript. It supports a single attribute named name:
+Create a file src/public/js/HelloWorld.js with the following contents:
+/* * Define template: * * - create `template` element * - set contents (`innerHTML`) - including `<style>` block."><meta property="og:type" content="article"><meta property="og:url" content="https://bvfnbk.github.io/posts/web-components/greeting/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-08-22T16:13:21+02:00"><meta property="article:modified_time" content="2022-08-22T16:13:21+02:00"></head><body><header class=app-header><a href=https://bvfnbk.github.io/><img class=app-header-avatar src=/avatar.png alt=bvfnbk></a><h1>Notes of bvfnbk</h1><nav class=app-header-menu><a class=app-header-menu-item href=/>Home</a>
 /
 <a class=app-header-menu-item href=/tags/>Tags</a>
 /
-<a class=app-header-menu-item href=/about/>About</a></nav><p>Software development and other stuff.</p><div class=app-header-social><a href=https://github.com/bvfnbk target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>https://github.com/bvfnbk</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>A 'Greeter' Web Component</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Aug 22, 2022</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://bvfnbk.github.io/tags/web/>web</a>
+<a class=app-header-menu-item href=/about/>About</a></nav><p>Software development and other stuff.</p><div class=app-header-social><a href=https://github.com/bvfnbk target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>https://github.com/bvfnbk</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>A 'Greeter' Web Component</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Aug 22, 2022</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://bvfnbk.github.io/tags/web/>web</a>
 <a class=tag href=https://bvfnbk.github.io/tags/html/>html</a>
 <a class=tag href=https://bvfnbk.github.io/tags/javascript/>javascript</a>
-<a class=tag href=https://bvfnbk.github.io/tags/web-component/>web-component</a></div></div></header><div class=post-content><p><em>Vanilla web components</em> are custom components written in plain JavaScript without any of the usual component frameworks
-like <em>React</em>, <em>Vue</em> or <em>Angular</em> and alike involved.</p><p>We will create a &ldquo;greeter&rdquo; element which is supposed to render a greeting message to the page. First, the message will
-be constant, but later it is supposed to be configurable using an attribute.</p><h2 id=constant-hello-world>Constant &ldquo;Hello World&rdquo;</h2><p>For the start, we define an element <code>&lt;hello-message /></code>, which, when inserted into the page source, renders the most
-infamous</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>Hello World!
-</code></pre></div><p>message where it has been defined in the DOM. For that, create a plain <em>JavaScript</em> file, e.g. <code>HelloMessage.js</code></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#a6e22e>constructor</span>() {
-    <span style=color:#66d9ef>super</span>();
-  }
-}
-</code></pre></div><p>The MDN mentions that _all_functionality the custom element is supposed to have should be defined in the
-<code>connectedCallback()</code> lifecycle method, i.e.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#a6e22e>connectedCallback</span>() {
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>attachShadow</span>({<span style=color:#a6e22e>mode</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;open&#39;</span>});
+<a class=tag href=https://bvfnbk.github.io/tags/web-component/>web-component</a></div></div></header><div class=post-content><p><em>Vanilla web components</em> are custom components written in plain JavaScript - not using any of the usual component
+frameworks like <em>React</em>, <em>Vue</em> or <em>Angular</em> and alike involved.</p><p>The following source code snippet defines a <code>&lt;hello-message /></code> component, written in plain <em>JavaScript</em>. It
+supports a single attribute named <code>name</code>:</p><p>Create a file <code>src/public/js/HelloWorld.js</code> with the following contents:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>/*
+</span><span style=color:#75715e> * Define template:
+</span><span style=color:#75715e> * 
+</span><span style=color:#75715e> *   - create `template` element
+</span><span style=color:#75715e> *   - set contents (`innerHTML`) - including `&lt;style&gt;` block.
+</span><span style=color:#75715e> */</span>
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>template</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;template&#39;</span>);
+<span style=color:#a6e22e>template</span>.<span style=color:#a6e22e>innerHTML</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`
+</span><span style=color:#e6db74>&lt;style&gt;
+</span><span style=color:#e6db74>span#wrapper {
+</span><span style=color:#e6db74>  font-weight: bolder;
+</span><span style=color:#e6db74>  color: brown;
+</span><span style=color:#e6db74>}
+</span><span style=color:#e6db74>&lt;/style&gt;
+</span><span style=color:#e6db74>&lt;span id=&#34;wrapper&#34;&gt;Hello World!&lt;/span&gt;
+</span><span style=color:#e6db74>`</span>;
 
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>wrapper</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;span&#39;</span>);
-    <span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Hello World&#39;</span>;
-
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>shadowRoot</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>wrapper</span>);
-  }
-}
-</code></pre></div><p>Make the new element known as <code>hello-message</code> with</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-}
-
-<span style=color:#a6e22e>customElements</span>.<span style=color:#a6e22e>define</span>(<span style=color:#e6db74>&#39;hello-message&#39;</span>, <span style=color:#a6e22e>HelloMessage</span>);
-</code></pre></div><p>and include the script in your <code>index.html</code> file, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#75715e>&lt;!doctype html&gt;</span>
-&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;en&#34;</span>&gt;
-&lt;<span style=color:#f92672>head</span>&gt;
-  &lt;<span style=color:#f92672>title</span>&gt;Web Component&lt;/<span style=color:#f92672>title</span>&gt;
-  &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;HelloMessage.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-&lt;/<span style=color:#f92672>head</span>&gt;
-&lt;<span style=color:#f92672>body</span>&gt;
-&lt;<span style=color:#f92672>hello-message</span>&gt;&lt;/<span style=color:#f92672>hello-message</span>&gt;
-&lt;/<span style=color:#f92672>body</span>&gt;
-&lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><h2 id=greeter-with-an-attribute>Greeter with an Attribute</h2><p>Here we add a <code>string</code>-valued attribute to the custom element which allows us to specify the name of the person being
-greeted. It may be used like</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>
-&lt;<span style=color:#f92672>hello-message</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;World&#34;</span>&gt;&lt;/<span style=color:#f92672>hello-message</span>&gt;
-</code></pre></div><p>The initial value of the attribute can be accessed/checked using the <code>hasAttribute(string)</code> and <code>getAttribute()</code>
-functions of the HTML element, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>hasAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>) <span style=color:#f92672>?</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>) <span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;World&#39;</span>;
-</code></pre></div><p>Now change the <code>connectedCallback()</code> function to something like</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#a6e22e>connectedCallback</span>() {
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>attachShadow</span>({<span style=color:#a6e22e>mode</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;open&#39;</span>});
-
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>wrapper</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;span&#39;</span>);
-
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>hasAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>) <span style=color:#f92672>?</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>) <span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;World&#39;</span>;
-    <span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`Hello </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>name</span><span style=color:#e6db74>}</span><span style=color:#e6db74>!`</span>;
-
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>shadowRoot</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>wrapper</span>);
-  }
-}
-</code></pre></div><p>and we should be able to set the name of the addressee, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>
-&lt;<span style=color:#f92672>hello-message</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Friend&#34;</span>&gt;&lt;/<span style=color:#f92672>hello-message</span>&gt;
-</code></pre></div><h2 id=update-the-message-when-the-attribute-changes>Update the Message when the Attribute changes</h2><p>I want to be able to update the value of the <code>name</code> attribute using JavaScript - e.g. by writing the value of an input
-element through and have the custom element update its greeting accordingly.</p><p>For that, we need an <code>&lt;input></code> element, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>input</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;someInput&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span>/&gt;&lt;<span style=color:#f92672>br</span>/&gt;
-&lt;<span style=color:#f92672>hello-message</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;greeter&#34;</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;World&#34;</span>&gt;&lt;/<span style=color:#f92672>hello-message</span>&gt;
-</code></pre></div><p>The <code>id</code> attributes are only required to locate the elements using JavaScript. Add a <code>&lt;script>&lt;/script></code> block right
-before the closing body tag. Retrieve the element(s) and register an <code>input</code> listener to the input element:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>greeter</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;greeter&#39;</span>);
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>inputElement</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;someInput&#39;</span>);
-
-<span style=color:#a6e22e>inputElement</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;input&#39;</span>, (<span style=color:#a6e22e>event</span>) =&gt; {
-  <span style=color:#a6e22e>greeter</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>, <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>);
-});
-</code></pre></div><p>The element does not (yet) handle the attribute change. The attribute needs to be registered and a change callback is
-required. Add the following to the component source <code>HelloMessage.js</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#66d9ef>static</span> <span style=color:#a6e22e>get</span> <span style=color:#a6e22e>observedAttributes</span>() {
+<span style=color:#75715e>/*
+</span><span style=color:#75715e> * Define element
+</span><span style=color:#75715e> * 
+</span><span style=color:#75715e> *   - ES6 class
+</span><span style=color:#75715e> *   - Extend HTMLElement (others are possible)
+</span><span style=color:#75715e> */</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
+  <span style=color:#75715e>// Define property names for which change events should be intercepted: 
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>static</span> <span style=color:#a6e22e>get</span> <span style=color:#a6e22e>observedAttributes</span>() {
     <span style=color:#66d9ef>return</span> [<span style=color:#e6db74>&#39;name&#39;</span>];
   }
 
-  <span style=color:#a6e22e>attributeChangedCallback</span>(<span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>oldValue</span>, <span style=color:#a6e22e>newValue</span>) {
-    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>name</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;name&#39;</span>) {
-      <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>updateMessage</span>(<span style=color:#a6e22e>newValue</span>);
-    }
-  }
-
-  <span style=color:#ae81ff>_</span><span style=color:#a6e22e>updateMessage</span>(<span style=color:#a6e22e>value</span>) {
-    <span style=color:#75715e>// update the message
-</span><span style=color:#75715e></span>  }
-}
-</code></pre></div><p>The <code>attributeChangeCallback</code> must be able to update the inner text of the wrapper. For that, it must be converted to an
-instance variable, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
+  <span style=color:#75715e>/*
+</span><span style=color:#75715e>   * - attach shadow
+</span><span style=color:#75715e>   * - clone template into shadow root
+</span><span style=color:#75715e>   * - retrieve elements of interest &amp; define fields
+</span><span style=color:#75715e>   */</span>
   <span style=color:#a6e22e>constructor</span>() {
     <span style=color:#66d9ef>super</span>();
-    <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;span&#39;</span>);
-    <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Hello World!&#39;</span>;
-  }
-
-  <span style=color:#a6e22e>connectedCallback</span>() {
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>attachShadow</span>({<span style=color:#a6e22e>mode</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;open&#39;</span>});
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>shadowRoot</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>);
-  }
-
-  <span style=color:#ae81ff>_</span><span style=color:#a6e22e>updateMessage</span>(<span style=color:#a6e22e>value</span>) {
-    <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>value</span> <span style=color:#f92672>?</span> <span style=color:#e6db74>`Hello </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>value</span><span style=color:#e6db74>}</span><span style=color:#e6db74>!`</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>`Hello World!`</span>;
-  }
-}
-</code></pre></div><h2 id=using-a-template--adding-styles>Using a Template & Adding Styles</h2><p>Currently, the DOM node is being created programmatically. This is easy for a single element but building complex DOM
-structures quickly gets hard to maintain. The approach described here uses a template string to define the DOM and adds
-styling to the component, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>template</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;template&#39;</span>);
-<span style=color:#a6e22e>template</span>.<span style=color:#a6e22e>innerHTML</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`
-</span><span style=color:#e6db74>    &lt;style&gt;
-</span><span style=color:#e6db74>        span#wrapper {
-</span><span style=color:#e6db74>            font-weight: bolder;
-</span><span style=color:#e6db74>            color: brown;
-</span><span style=color:#e6db74>        }
-</span><span style=color:#e6db74>    &lt;/style&gt;
-</span><span style=color:#e6db74>    &lt;span id=&#34;wrapper&#34;&gt;Hello World!&lt;/span&gt;
-</span><span style=color:#e6db74>`</span>;
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#75715e>// ...
-</span><span style=color:#75715e></span>}
-</code></pre></div><p>The template <em>content</em> node must be copied to the shadow root in order to be used. This can be done in the
-<code>connectedCallback()</code> as well, i.e.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#a6e22e>connectedCallback</span>() {
     <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>attachShadow</span>({<span style=color:#a6e22e>mode</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;open&#39;</span>});
     <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>shadowRoot</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>template</span>.<span style=color:#a6e22e>content</span>.<span style=color:#a6e22e>cloneNode</span>(<span style=color:#66d9ef>true</span>));
     <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>shadowRoot</span>.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;wrapper&#39;</span>);
-  }
-}
-</code></pre></div><p>The <code>attributeChangedCallback(attributeName, oldValue, newValue)</code> is called <em>before</em> the
-<code>connectedCallback()</code>, i.e. the wrapper field is not yet initialized and we may access <code>undefined</code> at the moment we try
-to update the message.</p><p>Adding a little helper method to compose the message we can update the <code>_updateMessage(value)</code> method to</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#ae81ff>_</span><span style=color:#a6e22e>updateMessage</span>(<span style=color:#a6e22e>value</span>) {
-    <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>) {
-      <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>getMessage</span>(<span style=color:#a6e22e>value</span> <span style=color:#f92672>?</span> <span style=color:#a6e22e>value</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>`World!`</span>);
-    }
   }
   
-  <span style=color:#ae81ff>_</span><span style=color:#a6e22e>getMessage</span>(<span style=color:#a6e22e>value</span>) {
-      <span style=color:#66d9ef>return</span> <span style=color:#e6db74>`Hello </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>value</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>;
-  }
-}
-</code></pre></div><p>The initial value must now be set in the <code>connectedCallback()</code>. Use the HTML elements <code>hasAttribute(string)</code> and
-<code>getAttribute(string)</code> to update the span:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloMessage</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>HTMLElement</span> {
-  <span style=color:#a6e22e>connectedCallback</span>() {
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>attachShadow</span>({<span style=color:#a6e22e>mode</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;open&#39;</span>});
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>shadowRoot</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>template</span>.<span style=color:#a6e22e>content</span>.<span style=color:#a6e22e>cloneNode</span>(<span style=color:#66d9ef>true</span>));
-    <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>shadowRoot</span>.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;wrapper&#39;</span>);
-    
-    <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>hasAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>)) {
-        <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>getMessage</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>));
-    } <span style=color:#66d9ef>else</span> {
-        <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>getMessage</span>(<span style=color:#e6db74>&#39;World&#39;</span>);
+  <span style=color:#75715e>/*
+</span><span style=color:#75715e>   * Handle _all_ property change events for which this element is registered for.
+</span><span style=color:#75715e>   */</span>
+  <span style=color:#a6e22e>attributeChangedCallback</span>(<span style=color:#a6e22e>attributeName</span>, <span style=color:#ae81ff>_</span><span style=color:#a6e22e>oldValue</span>, <span style=color:#a6e22e>newValue</span>) {
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>attributeName</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;name&#39;</span>) {
+      <span style=color:#66d9ef>this</span>.<span style=color:#ae81ff>_</span><span style=color:#a6e22e>wrapper</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`Hello </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>newValue</span> <span style=color:#f92672>?</span> <span style=color:#a6e22e>newValue</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;World&#39;</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>;
     }
   }
 }
-</code></pre></div><h2 id=testing>Testing</h2><p>This post was mainly driven by learning and creating a proof of concept. We have created a web component and added one
-feature after another. Now we have built a component which can be used as a starting point for more useful components -
-if it only were tested!</p><h3 id=what-should-be-tested>What should be tested?</h3><p>The component does neither contain much logic nor complicated markup and neither does it emit events. The component may
-later become a part of a framework, maybe not this particular one, but in general. Thus, it may be useful to prove that
-the attribute (and changes to it) trigger the correct actions or rather result.</p><h2 id=sources>Sources</h2><p>The sources to the web component can be found on GitHub: <a href=https://github.com/bvfnbk/example-web-component-greeter>https://github.com/bvfnbk/example-web-component-greeter</a></p></div><div class=post-footer></div></article></main></body></html>
+
+<span style=color:#75715e>/*
+</span><span style=color:#75715e> * Register element.
+</span><span style=color:#75715e> * 
+</span><span style=color:#75715e> * Note: the element class is not required to be exported.
+</span><span style=color:#75715e> */</span>
+<span style=color:#a6e22e>customElements</span>.<span style=color:#a6e22e>define</span>(<span style=color:#e6db74>&#39;hello-message&#39;</span>, <span style=color:#a6e22e>HelloMessage</span>);
+</code></pre></div><p><strong>Please note:</strong></p><ul><li>The <a href=https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements>Mozilla Developer Network</a>
+mentions that all tasks related to the set-up of the component is supposed to take place in the <code>connectedCallback</code>
+(cf. <a href=https://bvfnbk.github.io/posts/web-components/overview/#lifecycle-methods title="Lifecycle Methods">Lifecycle Methods</a>)</li><li>The suggested implementation follows the
+<a href=https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance>specification</a> for custom
+elements which actually is more forgiving.</li><li>Long-running (e.g. <em>asynchronous</em> <code>fetch</code> requests) should be handled in the <code>connectedCallback()</code> though.</li></ul><p>Create the HTML page <code>src/public/index.html</code> like this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#75715e>&lt;!doctype html&gt;</span>
+&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;en&#34;</span>&gt;
+&lt;<span style=color:#f92672>head</span>&gt;
+  &lt;<span style=color:#f92672>title</span>&gt;Example / Web Components / Greeter&lt;/<span style=color:#f92672>title</span>&gt;
+  &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;js/HelloMessage.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+&lt;/<span style=color:#f92672>head</span>&gt;
+&lt;<span style=color:#f92672>body</span>&gt;
+&lt;<span style=color:#f92672>label</span> <span style=color:#a6e22e>for</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;someInput&#34;</span>&gt;Message:&lt;/<span style=color:#f92672>label</span>&gt;
+&lt;<span style=color:#f92672>input</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;someInput&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span>/&gt; &lt;<span style=color:#f92672>br</span>/&gt;
+&lt;<span style=color:#f92672>hello-message</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;greeter&#34;</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Friend&#34;</span>&gt;&lt;/<span style=color:#f92672>hello-message</span>&gt;
+&lt;<span style=color:#f92672>script</span>&gt;
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>greeter</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;greeter&#39;</span>);
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>inputElement</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;someInput&#39;</span>);
+
+  <span style=color:#a6e22e>inputElement</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;input&#39;</span>, (<span style=color:#a6e22e>event</span>) =&gt; { <span style=color:#a6e22e>greeter</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>, <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>); });
+&lt;/<span style=color:#f92672>script</span>&gt;
+&lt;/<span style=color:#f92672>body</span>&gt;
+&lt;/<span style=color:#f92672>html</span>&gt;
+</code></pre></div><h2 id=sources>Sources</h2><p>The sources to this web component (and more) can be found on GitHub:</p><p><a href=https://github.com/bvfnbk/example-web-component-greeter>https://github.com/bvfnbk/example-web-component-greeter</a></p></div><div class=post-footer></div></article></main></body></html>
