@@ -1,0 +1,125 @@
+<!doctype html><html lang=en-us><head><title>A &lt;hello-message> TypeScript Web Component // Notes of bvfnbk</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.83.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="bvfnbk"><meta name=description content><link rel=stylesheet href=https://bvfnbk.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="A <hello-message> TypeScript Web Component"><meta name=twitter:description content="A <hello-message> Web Component introduced vanilla web components using JavaScript. This is a good start but, out of reasons, using JavaScript might not be desirable.
+At the moment, there is only one component and its test and just right now might be a good moment to convert the sources to TypeScript.
+Preparation Create a new package and simply copy the src/public/js/HelloMessage.js to src/ts/HelloMessage.ts.
+Please note: The component is basically left &ldquo;as is&rdquo; at the moment for the index."><meta property="og:title" content="A <hello-message> TypeScript Web Component"><meta property="og:description" content="A <hello-message> Web Component introduced vanilla web components using JavaScript. This is a good start but, out of reasons, using JavaScript might not be desirable.
+At the moment, there is only one component and its test and just right now might be a good moment to convert the sources to TypeScript.
+Preparation Create a new package and simply copy the src/public/js/HelloMessage.js to src/ts/HelloMessage.ts.
+Please note: The component is basically left &ldquo;as is&rdquo; at the moment for the index."><meta property="og:type" content="article"><meta property="og:url" content="https://bvfnbk.github.io/posts/example-web-components/ts-hello-message/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-03-03T10:31:44+01:00"><meta property="article:modified_time" content="2023-03-03T10:31:44+01:00"></head><body><header class=app-header><a href=https://bvfnbk.github.io/><img class=app-header-avatar src=/avatar.png alt=bvfnbk></a><h1>Notes of bvfnbk</h1><nav class=app-header-menu><a class=app-header-menu-item href=/>Home</a>
+/
+<a class=app-header-menu-item href=/tags/>Tags</a>
+/
+<a class=app-header-menu-item href=/about/>About</a></nav><p>Software development and other stuff.</p><div class=app-header-social><a href=https://github.com/bvfnbk target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>https://github.com/bvfnbk</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>A &lt;hello-message> TypeScript Web Component</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Mar 3, 2023</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://bvfnbk.github.io/tags/web/>web</a>
+<a class=tag href=https://bvfnbk.github.io/tags/html/>html</a>
+<a class=tag href=https://bvfnbk.github.io/tags/typescript/>typescript</a>
+<a class=tag href=https://bvfnbk.github.io/tags/web-component/>web-component</a>
+<a class=tag href=https://bvfnbk.github.io/tags/test/>test</a>
+<a class=tag href=https://bvfnbk.github.io/tags/karma/>karma</a>
+<a class=tag href=https://bvfnbk.github.io/tags/jasmine/>jasmine</a></div></div></header><div class=post-content><p><a href=/posts/example-web-components/hello-message/>A <code>&lt;hello-message></code> Web Component</a> introduced vanilla web components
+using <em>JavaScript</em>. This is a good start but, out of reasons, using <em>JavaScript</em> might not be desirable.</p><p>At the moment, there is only one component and its test and just right now might be a good moment to convert the sources
+to <em>TypeScript.</em></p><h2 id=preparation>Preparation</h2><p>Create a new package and simply copy the <code>src/public/js/HelloMessage.js</code> to <code>src/ts/HelloMessage.ts</code>.</p><p><strong>Please note:</strong> The component is basically left &ldquo;as is&rdquo; at the moment for the <code>index.html</code> to work without changes.</p><p>Now copy the <code>src/public/index.html</code> to <code>src/public/index.html</code> but we are not done yet. Install the required
+dependencies for <em>TypeScript</em>, i.e.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>npm install --save-dev typescript
+</code></pre></div><p>and add the <code>tsconfig.json</code> configuration file</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;compilerOptions&#34;</span>: {
+    <span style=color:#f92672>&#34;module&#34;</span>: <span style=color:#e6db74>&#34;ES6&#34;</span>,
+    <span style=color:#f92672>&#34;target&#34;</span>: <span style=color:#e6db74>&#34;ES6&#34;</span>,
+    <span style=color:#f92672>&#34;alwaysStrict&#34;</span>: <span style=color:#66d9ef>true</span>,
+    <span style=color:#f92672>&#34;strictNullChecks&#34;</span>: <span style=color:#66d9ef>true</span>,
+    <span style=color:#f92672>&#34;noImplicitAny&#34;</span>: <span style=color:#66d9ef>true</span>,
+    <span style=color:#f92672>&#34;noImplicitReturns&#34;</span>: <span style=color:#66d9ef>true</span>,
+    <span style=color:#f92672>&#34;noImplicitThis&#34;</span>: <span style=color:#66d9ef>true</span>,
+    <span style=color:#f92672>&#34;removeComments&#34;</span>: <span style=color:#66d9ef>true</span>
+  },
+  <span style=color:#f92672>&#34;include&#34;</span>: [
+    <span style=color:#e6db74>&#34;src/ts/**/*.ts&#34;</span>
+  ],
+  <span style=color:#f92672>&#34;exclude&#34;</span>: [
+    <span style=color:#e6db74>&#34;node_modules&#34;</span>
+  ]
+}
+</code></pre></div><p><strong>Please note:</strong> This probably causes the IDE to show some errors in the copied sources. These can be fixed
+by</p><ul><li>adding types to the method signature of <code>attributeChangedCallback</code></li><li>add non-<code>null</code> assertion operator to accesses to the nullable fields, e.g.<ul><li><code>this.shadowRoot</code> and</li><li><code>this._wrapper</code></li></ul></li><li>add an empty <code>export {}</code> statement to prevent the error message regarding the redeclaration of the <code>template</code>
+block-scoped variable.</li></ul><p>At the moment it is not possible to open the <code>index.html</code> file in the browser. The <em>TypeScript</em> source is not
+transpiled yet and there is no <em>JavaScript</em> version to be found at the specified location. There is another step
+required.</p><h2 id=building>Building</h2><p>This step adds the required &ldquo;Build&rdquo; step to the module. To be more precise, this step will add scripts to create a
+directory containing all required files (a <em>distribution</em>) and to remove previously created <em>distributions</em>.</p><p>The <code>build</code> step is supposed to perform the following steps:</p><ol><li>Prepare a directory for the distribution.</li><li>Copy static assets (i.e. the <code>src/public/index.html</code> file)</li><li>Compile <em>TypeScript</em> sources and put them into <code>dist/js</code>.</li></ol><p>The last step can be configured in the <code>tsconfig.json</code> file: add the <code>outDir</code> property to the <code>compilerOptions</code> object
+pointing to <code>dist/js</code>. With <code>shx</code> and <code>npm-run-all</code>, this results in a <code>scripts</code> section (in the <code>package.json</code>) like:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;scripts&#34;</span> : {
+    <span style=color:#f92672>&#34;clean&#34;</span>: <span style=color:#e6db74>&#34;shx rm -rf dist&#34;</span>,
+    <span style=color:#f92672>&#34;prepare&#34;</span>: <span style=color:#e6db74>&#34;shx mkdir -p dist&#34;</span>,
+    <span style=color:#f92672>&#34;compile&#34;</span>: <span style=color:#e6db74>&#34;tsc&#34;</span>,
+    <span style=color:#f92672>&#34;copy-assets&#34;</span>: <span style=color:#e6db74>&#34;shx cp src/public/index.html dist/&#34;</span>,
+    <span style=color:#f92672>&#34;build&#34;</span> : <span style=color:#e6db74>&#34;npm-run-all prepare compile copy-assets&#34;</span>
+  }
+}
+</code></pre></div><p>Run <code>npm run build</code> to create the distribution in <code>dist/</code>. Open <code>dist/index.html</code> in your browser.</p><h2 id=testing>Testing</h2><p>Copy</p><ul><li>source test specification <code>test/HelloMessage.spec.js</code> to <code>src/test/HelloMessage.spec.ts</code> and</li><li>the <em>Karma</em> configuration <code>karma.conf.js</code></li></ul><p>and ignore the errors shown by the IDE at the moment.</p><p>Install the same dependencies as described in
+<a href=/posts/example-web-components/testing-hello-message/>Testing the <code>&lt;hello-message></code> Web Component</a> and add the types
+for <code>jasmine</code> and <code>karma-typescript</code>, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>npm install --save-dev karma <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  jasmine-core <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  karma-jasmine <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  karma-chrome-launcher <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  karma-firefox-launcher <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  karma-coverage <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  karma-typescript <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  @types/jasmine
+</code></pre></div><p>Add the <code>karma</code> script to the <code>package.json</code>, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;scripts&#34;</span> : {
+    <span style=color:#f92672>&#34;karma&#34;</span> : <span style=color:#e6db74>&#34;karma start&#34;</span>
+  }
+}
+</code></pre></div><p>The <code>karma.conf.js</code> needs to be updated, e.g.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>module</span>.<span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>config</span>) {
+  <span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>set</span>({
+    <span style=color:#a6e22e>frameworks</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#39;jasmine&#39;</span>, <span style=color:#e6db74>&#39;karma-typescript&#39;</span>],
+    <span style=color:#a6e22e>files</span><span style=color:#f92672>:</span> [
+      { <span style=color:#a6e22e>pattern</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;src/ts/**/*.ts&#39;</span> },
+      { <span style=color:#a6e22e>pattern</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;src/test/**/*.ts&#39;</span> }
+    ],
+    <span style=color:#a6e22e>preprocessors</span><span style=color:#f92672>:</span> {
+      <span style=color:#e6db74>&#39;src/ts/**/*.ts&#39;</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;karma-typescript&#39;</span>,
+      <span style=color:#e6db74>&#39;src/test/**/*.ts&#39;</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;karma-typescript&#39;</span>
+    },
+    <span style=color:#a6e22e>karmaTypescriptConfig</span><span style=color:#f92672>:</span> {
+      <span style=color:#a6e22e>compilerOptions</span><span style=color:#f92672>:</span> {
+        <span style=color:#a6e22e>module</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;ES6&#39;</span>,
+        <span style=color:#a6e22e>target</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;ES6&#39;</span>
+      },
+      <span style=color:#a6e22e>exclude</span><span style=color:#f92672>:</span> [
+        <span style=color:#e6db74>&#39;node_modules&#39;</span>
+      ]
+    },
+    <span style=color:#a6e22e>reporters</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#39;progress&#39;</span>, <span style=color:#e6db74>&#39;karma-typescript&#39;</span>],
+  });
+};
+</code></pre></div><p><strong>Please note:</strong></p><ul><li>The <code>@types/jasmine</code> package should fix the missing symbols in the test specification.</li><li>The <code>karma-typescript</code> preprocessor compiles tests and components to <em>JavaScript</em> before running the test.</li><li>The <code>karmaTypescriptConfig</code> configures the output target.j</li></ul><h2 id=test-simplification>Test Simplification</h2><p><strong>Please note:</strong> The test from
+<a href=/posts/example-web-components/testing-hello-message/>Testing the <code>&lt;hello-message></code> Web Component</a>
+is supposed to run without any modification.</p><p>The changes sketched in the following source code snippet improve the code style of the original specification and add
+some type information to the fields.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#a6e22e>describe</span>(<span style=color:#e6db74>&#39;The &lt;hello-message&gt; element&#39;</span>, () <span style=color:#f92672>=&gt;</span> {
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>defaultElement</span>:<span style=color:#66d9ef>HTMLElement</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>defaultShadow</span>: <span style=color:#66d9ef>ShadowRoot</span>;
+
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>customElement</span>: <span style=color:#66d9ef>HTMLElement</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>customShadow</span>: <span style=color:#66d9ef>ShadowRoot</span>;
+
+    <span style=color:#a6e22e>beforeEach</span>(() <span style=color:#f92672>=&gt;</span> {
+        <span style=color:#a6e22e>defaultElement</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;hello-message&#39;</span>);
+        <span style=color:#a6e22e>defaultShadow</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>defaultElement</span>.<span style=color:#a6e22e>shadowRoot</span> <span style=color:#66d9ef>as</span> <span style=color:#a6e22e>ShadowRoot</span>;
+
+        <span style=color:#a6e22e>customElement</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#39;hello-message&#39;</span>);
+        <span style=color:#a6e22e>customElement</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>, <span style=color:#e6db74>&#39;Friend&#39;</span>);
+        <span style=color:#a6e22e>customShadow</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>customElement</span>.<span style=color:#a6e22e>shadowRoot</span> <span style=color:#66d9ef>as</span> <span style=color:#a6e22e>ShadowRoot</span>;
+
+        document.<span style=color:#a6e22e>body</span>.<span style=color:#a6e22e>append</span>(<span style=color:#a6e22e>defaultElement</span>, <span style=color:#a6e22e>customElement</span>);
+    });
+
+    <span style=color:#a6e22e>afterEach</span>(() <span style=color:#f92672>=&gt;</span> {
+        <span style=color:#75715e>// Cleanup DOM
+</span><span style=color:#75715e></span>        document.<span style=color:#a6e22e>body</span>.<span style=color:#a6e22e>removeChild</span>(<span style=color:#a6e22e>defaultElement</span>);
+        document.<span style=color:#a6e22e>body</span>.<span style=color:#a6e22e>removeChild</span>(<span style=color:#a6e22e>customElement</span>);
+    });
+
+    <span style=color:#a6e22e>it</span>(<span style=color:#e6db74>&#39;should change the message back to the default when the &#34;name&#34; attribute is removed.&#39;</span>, <span style=color:#66d9ef>function</span> () {
+        <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>customShadow</span>.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;wrapper&#39;</span>).<span style=color:#a6e22e>innerText</span>).<span style=color:#a6e22e>toBe</span>(<span style=color:#e6db74>&#39;Hello Friend!&#39;</span>);
+        <span style=color:#a6e22e>customElement</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#39;name&#39;</span>);
+        <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>customShadow</span>.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#39;wrapper&#39;</span>).<span style=color:#a6e22e>innerText</span>).<span style=color:#a6e22e>toBe</span>(<span style=color:#e6db74>&#39;Hello World!&#39;</span>);
+    });
+});
+</code></pre></div><h2 id=sources>Sources</h2><p>As usual, the sources to the web component can be found on GitHub: <a href=https://github.com/bvfnbk/example-web-components>https://github.com/bvfnbk/example-web-components</a></p></div><div class=post-footer></div></article></main></body></html>
