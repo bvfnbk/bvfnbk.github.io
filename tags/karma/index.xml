@@ -6,4 +6,5 @@ At the moment, there is only one component and its test and just right now might
 Preparation Create a new package and simply copy the src/public/js/HelloMessage.js to src/ts/HelloMessage.ts.
 Please note: The component is basically left &amp;ldquo;as is&amp;rdquo; at the moment for the index.</description></item><item><title>Testing the &lt;hello-message> Web Component</title><link>https://bvfnbk.github.io/posts/example-web-components/testing-hello-message/</link><pubDate>Wed, 05 Oct 2022 12:34:34 +0200</pubDate><guid>https://bvfnbk.github.io/posts/example-web-components/testing-hello-message/</guid><description>The created web component (admittedly) is very simple and does not implement sophisticated behaviour (or any behaviour for that matter). It should be tested nonetheless.
 The part of the software stack actually running the tests is called a test runner. Another important part is the DSL to be used to write the tests. Basically install the following packages:
-karma (test runner) jasmine-core (test DSL) karma-jasmine karma-chrome-launcher karma-firefox-launcher Please note:</description></item></channel></rss>
+karma (test runner) jasmine-core (test DSL) karma-jasmine karma-chrome-launcher karma-firefox-launcher Please note:
+Jasmine provides the DSL to write the tests (for Behaviour Driven Development (BDD)).</description></item></channel></rss>
