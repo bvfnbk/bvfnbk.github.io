@@ -11,7 +11,7 @@
 package its artifacts up. The choices for JVM-based artifacts are limited but front-end artifacts basically provide all
 file formats and scripting languages available to the platform the artifact is built upon.</p><p>Recently, I started to serve the frontend assets as static files from within my service for better or for worse. Now the
 obvious question is, whether my service may <em>depend</em> on the front-end assets in the same way it depends on its back-end
-libraries.</p><h2 id=scenario>Scenario</h2><p>The prove-of-concept application consists out of a web page and a service. The service is supposed to serve the assets
+libraries.</p><h2 id=scenario>Scenario</h2><p>The proof-of-concept application consists out of a web page and a service. The service is supposed to serve the assets
 and a simple REST end-point.</p><p>The UI provides an input element asking for a name which will be sent to the backend to compose a message which will be
 shown in a span.</p><h2 id=implementation>Implementation</h2><p>The implementation can be found at <a href=https://github.com/bvfnbk/webjars-example>https://github.com/bvfnbk/webjars-example</a>. It basically implements two modules, a
 front-end module providing the HTML, CSS and JavaScript assets and a back-end module serving the assets <em>and</em> a REST
